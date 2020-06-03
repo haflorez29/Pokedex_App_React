@@ -4,7 +4,9 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <nav className='navbar navbar-expand-md navbar-dark bg-dark fixed-top'></nav>              
+        <nav className='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
+          <a>
+            </a></nav>              
       </div>
     )
   }
