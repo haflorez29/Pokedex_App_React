@@ -22,7 +22,6 @@ export default class Pokemon_List extends Component {
     }
    this.setState({pokemon: array});  
   }
-  
   render() {
     console.log(this.state.pokemon)
     return (
@@ -44,6 +43,20 @@ export default class Pokemon_List extends Component {
           <h1>Loading pokemon</h1>
         )}
       </div>
+      <ul className="pokemon__list">
+                {this.props.pokedex
+                    .filter(item => {
+                        return item.name.toLowerCase().includes(this.props.pokemonName);
+                    })
+                    .sort((x, y) => x.id - y.id)
+                    .map((item) => {
+                        return (
+                            <li className="pokemon__item" key={item.id}>
+                                <PokemonItem item={item} />
+                            </li>
+                        );
+                    })}
+            </ul>
       </div>
     );
   }
