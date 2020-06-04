@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
-import PokemonList from '../pokemon/Pokemon_List'
 
 class Form extends Component {
   state = {
-    inputMovie: ''
+    inputpokemon: ''
   }
 
   _handleChange = (e) => {
-    this.setState ({ inputMovie: e.target.value})
+    this.setState ({ inputpokemon: e.target.value})
   }
   _handleSubmit = (e) => {
     e.preventDefault()
-    // alert(this.state.inputMovie)
-    // const { inputMovie } = this.state
-    const input = this.state.inputMovie
+    // alert(this.state.inputpokemon)
+    // const { inputpokemon } = this.state
+    const input = this.state.inputpokemon
     const name = this.state.url
-  
     // for ( input === this.state.name ){
     //   console.log ('hola')
     // }
@@ -24,7 +22,7 @@ class Form extends Component {
   return (
     <form onSubmit={this._handleSubmit}>
     <div>    
-      <input type="text" className='Find pokemon' onChange={this._handleChange}></input>
+      <input type="text" className='Find pokemon input' onChange={this._handleChange}></input>
       <button>Search</button>
     </div>
     </form>

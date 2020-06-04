@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from "../Components/Layout/Navbar";
-import Dashboard from "../Components/Layout/Dashboard"
+import Main from "../Components/Layout/Main"
 import '../style/App.css'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
     <React.Fragment>      
     <Navbar></Navbar>
     <div className="container App">
-      <Dashboard/>
+      <Main/>
     </div>   
     </React.Fragment>
   );

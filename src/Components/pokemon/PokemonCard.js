@@ -1,25 +1,17 @@
 import React, {Component} from 'react'
 
 export default class PokemonCard extends Component {
-  state ={
-    name: "",
-    imageUrl: "",
-    pokemonIndex: "",
+  constructor(props){
+    super(props)
   }
-
-  componentDidMount ( ) {
-    const {name, url} = this.props;
-    const pokemonIndex = url.split('/')[url.split('/').lenght -2];
-    const imageUrl = `./sprites/pokemon/${pokemonIndex}.png`;
-
-    this.setState({ name, imageUrl, pokemonIndex });
-  }
+ 
   render() {
-    
+    const {name, url} = this.props
     return (
       <div className="col-md-3 col-sm-6 mb-5">
         <div className="card">
-        <h5 className="card-header">{this.state.name}</h5>
+    <h5 className="card-header">{name}</h5>
+    {/* <h5>{order}</h5> */}
         </div>
       </div>
     )

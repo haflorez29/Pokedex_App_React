@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PokemonCard from "./PokemonCard";
 import axios from "axios";
+import Form from "../pokemon/Form"
 
 export default class Pokemon_List extends Component {
   state = {
@@ -10,14 +11,24 @@ export default class Pokemon_List extends Component {
 
   async componentDidMount() {
     const res = await axios.get(this.state.url);
-    this.setState({pokemon: res.data["results"]});  
-    console.log(res) 
+    const otro = res.data["results"]
+    const array = [];
+    // this.setState({pokemon: res.data["results"]});  
+    console.log(otro)
+    for(let i=0; i<otro.length; i++){
+      const result = await axios.get(otro[i].url)
+      const datajson = result.data
+      array.push(datajson)
+    }
+   this.setState({pokemon: array});  
   }
-
- 
-
+  
   render() {
+    console.log(this.state.pokemon)
     return (
+      <div>
+        <Form
+        ></Form>
       <div>
         {this.state.pokemon ? (
           <div className="row">
@@ -25,13 +36,14 @@ export default class Pokemon_List extends Component {
               <PokemonCard 
               key={pokemon.name}
               name={pokemon.name}
-              url={pokemon.url}
+              url={pokemon.url}              
               />
             ))}
           </div>
         ) : (
           <h1>Loading pokemon</h1>
         )}
+      </div>
       </div>
     );
   }
