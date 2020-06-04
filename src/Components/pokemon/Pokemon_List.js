@@ -14,7 +14,7 @@ export default class Pokemon_List extends Component {
     console.log(res) 
   }
 
-
+ 
 
   render() {
     return (
