@@ -6,12 +6,16 @@ export default class PokemonCard extends Component {
   }
  
   render() {
-    const {name, url} = this.props
+    const {name, url, imagen, number,type} = this.props
     return (
       <div className="col-md-3 col-sm-6 mb-5">
         <div className="card">
-    <h5 className="card-header">{name}</h5>
-    {/* <h5>{order}</h5> */}
+          <div className="row">
+        <h5 className="card-header col-9">{name}</h5>
+        <div className="card-header col-3 row">{number}</div>
+        </div>
+        <img src={imagen}></img>
+        <p>{type}</p>
         </div>
       </div>
     )

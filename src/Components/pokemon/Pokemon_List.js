@@ -6,7 +6,7 @@ import Form from "../pokemon/Form"
 export default class Pokemon_List extends Component {
   state = {
     url: "https://pokeapi.co/api/v2/pokemon/?limit=25",
-    pokemon: null,
+    pokemon: null,    
   };
 
   async componentDidMount() {
@@ -23,6 +23,9 @@ export default class Pokemon_List extends Component {
    this.setState({pokemon: array});  
   }
   render() {
+    const type = [] 
+    type[0]=[0]
+    console.log(type)
     console.log(this.state.pokemon)
     return (
       <div>
@@ -35,7 +38,10 @@ export default class Pokemon_List extends Component {
               <PokemonCard 
               key={pokemon.name}
               name={pokemon.name}
-              url={pokemon.url}              
+              url={pokemon.url}  
+              imagen ={pokemon.sprites.front_default} 
+              number = {pokemon.order}  
+              type = {type.types}        
               />
             ))}
           </div>
@@ -43,20 +49,7 @@ export default class Pokemon_List extends Component {
           <h1>Loading pokemon</h1>
         )}
       </div>
-      <ul className="pokemon__list">
-                {this.props.pokedex
-                    .filter(item => {
-                        return item.name.toLowerCase().includes(this.props.pokemonName);
-                    })
-                    .sort((x, y) => x.id - y.id)
-                    .map((item) => {
-                        return (
-                            <li className="pokemon__item" key={item.id}>
-                                <PokemonItem item={item} />
-                            </li>
-                        );
-                    })}
-            </ul>
+      
       </div>
     );
   }
