@@ -1,16 +1,21 @@
 import React, {Component} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Layout/Navbar";
+import Dashboard from "../Components/Layout/Dashboard"
+import '../style/App.css'
 
-
-
-
-function App() {
+class App extends Component {
+  
+  render(){
   return (
-    <React.Fragment>
+    <React.Fragment>      
     <Navbar></Navbar>
+    <div className="container App">
+      <Dashboard/>
+    </div>   
     </React.Fragment>
   );
+  }
 }
 
 export default App;
